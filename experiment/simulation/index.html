@@ -1,13 +1,420 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-	<!-- Add CSS at the head of HTML file -->
-    <link rel="stylesheet" href="./css/main.css">
-</head>
-<body>
-		<!-- Your code goes here-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SOLVE</title>
+    <link rel="stylesheet" href="css/style.css"/>
+    <script type="text/javascript" src="js/script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+   
+    <script>
+        var simsubscreennum=0;
+        var temp=0;
+        var snd = document.getElementById("sound");
+    </script>
 
-	<!-- Add JS at the bottom of HTML file --> 
-        <script src="./js/main.js"></script>
+
+</head>
+<body style="margin:0; font-family:verdana;">
+    <div id="simscreen">
+    <div id="title"><h3>Estimation of Underground utility using GPR</h3></div>
+    <div class="simsubscreen" id="canvas0" >
+    <h4 class="incanvas">Objective:</h4>
+    <p class="incanvas" style="font-size:14px;">To identify the position and depth of the underground utility with help of Ground Penetrating Radar (GPR). </p><br/>
+    <h4 class="incanvas">Apparatus used:</h4>
+    <p class="incanvas" style="font-size:14px;">Ground Penerating Radar Device.</p>
+    <img style="position:absolute; left:130px; top:182px;width: 31%;rotate: -5deg;" title="GPR machine" src="images/fulsetup_gpr.png"/>
+    <img style="position:absolute; left:330px; top:240px;" src="images/table2.png" />
+    <img style="position:absolute; left:380px; top:225px; max-width:85px;width:100%;" title="Tab"  src="images/tab.png" />
+    <img style="position:absolute; left:0px; top:170px;max-width:18%;width:100%;transform: rotateY(180deg)" src="images/man.png" />
+    <br>&nbsp;<span class="tooltip" style="border-bottom:1px dotted ; color:red;text-align:justify;"><strong>Description</strong> 
+    <span class="tooltiptext">
+    <p><strong style="color:red">Ground Penetrating Radar (GPR)</strong>: is a non-destructive geophysical technique that uses high-frequency electromagnetic waves to investigate subsurface structures and materials. It can be used for utility mapping to locate and identify buried utilities, such as pipes and cables.</p>
+    </span>
+    </span>
+    </div></div>
+
+    <div class="simsubscreen" id="canvas1" style="visibility:hidden;">
+    <strong class="incanvas">STEP</strong>
+    <span class="circlebg">&nbsp;1&nbsp;</span>
+    <p class="steptext">&nbsp;Click on the GPR to identify the parts.</p>
+    <img id="GPR_machine" style="position:absolute; left:170px; top:66px;width: 41%;" title="GPR machine" src="images/fulsetup_gpr.png"/>
+    <img id="arrowA" style="position: absolute; left: 202px; top: 205px; width: 63px; rotate: -89deg; visibility: hidden;" src="images/arrow5.png"/>
+    <p id="arrow_Atext" style="position: absolute; left: 24px; top: 249px; width: 210px;font-size: 14px; font-weight: bold; visibility: hidden;">Radar Control Unit</p>
+
+    <img id="arrowB" style="position: absolute; left: 436px; top: 52px; width: 63px; rotate: 90deg; visibility: hidden;" src="images/arrow5.png"/>
+    <p id="arrow_Btext" style="position: absolute; left: 536px; top: 89px; width: 210px;font-size: 14px; font-weight: bold; visibility: hidden;">UI and data storage laptop unit</p>
+
+    <img id="arrowC" style="position: absolute; left: 438px; top: 198px; width: 63px; rotate: 91deg; visibility: hidden;" src="images/arrow5.png"/>
+    <p id="arrow_Ctext" style="position: absolute; left: 537px; top: 245px; width: 210px;font-size: 14px; font-weight: bold; visibility: hidden;">Cart</p>
+
+    <img id="arrowD" style="position: absolute; left: 382px; top: 350px; width: 63px; rotate: 91deg; visibility: hidden;" src="images/arrow5.png"/>
+    <p id="arrow_Dtext" style="position: absolute; left: 481px; top: 398px; width: 210px;font-size: 14px; font-weight: bold; visibility: hidden;">Antena</p>
+
+    <img id="arrowE" style="position: absolute; left: 471px; top: 309px; width: 63px; rotate: 91deg; visibility: hidden;" src="images/arrow5.png"/>
+    <p id="arrow_Etext" style="position: absolute; left: 567px; top: 356px; width: 210px;font-size: 14px; font-weight: bold; visibility: hidden;">Odometer</p>
+    </div>
+
+    <div class="simsubscreen" id="canvas2" style="visibility:hidden;">
+    <strong class="incanvas">STEP</strong>
+    <span class="circlebg">&nbsp;2&nbsp;</span>
+    <p class="steptext">&nbsp;Connect Components to the Trolley and Suspend the Radar Horizontally 2-5 cm Above Ground Surface.</p>
+    <img id="GPRset_withoutconnect" style="position:absolute; left:147px; top:63px;width: 38%;visibility: hidden;" title="GPR machine"  src="images/gpr_withoutconnection.png" />
+    <img id="laptop_connector" style="position:absolute; left:269px; top:77px;max-width:7.5%;width:100%;visibility: hidden;height: 88px;"title="Laptop connector" src="images/laptop_connector.png"/>
+    <img id="odometer_connector" style="position:absolute; left:228px; top:296px;max-width:7.5%;width:100%;visibility: hidden;height: 88px; rotate: -31deg;
+    transform: rotatex(129deg);"title="odometer_connector" src="images/odometer_connection.png"/>
+    <img id="lapwire1_connecthand" style="position:absolute; left:362px; top:121px;max-width:9%;width:100%;visibility: hidden;rotate: 28deg;"title="Odometer connector" src="images/hand.png"/>
+    <img id="after_connectodo" style="position:absolute; left:147px; top:63px;width: 38%;visibility: hidden;" title="GPR machine"  src="images/after_connectodometer.png" />
+    <img id="battery_wire" style="position:absolute; left:283px; top:317px;max-width:9%;width:100%;"title="wire3" src="images/connection1.png"/>
+    <span id="dialog"style="position:absolute; padding: 16px; border : 1px sollid black; background-color:black; border-radius:5px; left:439px; top:113px;width:263px;height: 43px; visibility:hidden;">
+    <input type="button" style="position:absolute;border-radius:5px; margin:0 auto; margin-left: 114px;margin-top: 28px;"id="5-1"  value="OK" onclick="hidedialog1();"/>
+    <p id="divp" style="position:absolute;color:white; font-size:15px; padding:0px;margin-top: -10px;margin-left: 1px;">Connect Laptop to Controller.</p></span>
+              
+    <img id="backpage" style="position: absolute; left: 345px; top: 214px; width: 55px; visibility: hidden" src="images/bg.png"/>
+    <img id="cropGPR_with2wire" style="position: absolute; left: 345px; top: 214px; width: 55px; visibility: hidden" src="images/withoutconnection.png"/>
+    <img id="withoutodometerconnection" style="position: absolute; left: 484px; top: 94px; width: 150px; visibility: hidden" src="images/without_odometerconnection.png"/>
+    <img id="connect_odometer" style="position:absolute; left: 501px; top: 207px;max-width:6.5%;width:100%;visibility: hidden;height: 53px;"title="wire3" src="images/odometer_connection.png"/>
+    <img id="odowire1_connecthand" style="position:absolute; left:657px; top:228px;max-width:9%;width:100%;visibility: hidden;rotate: 28deg;"title="Odometer connector" src="images/hand.png"/>
+    <img id="withoutbatteryconnection" style="position: absolute; left: 485px; top: 90px; width: 150px; visibility: hidden" src="images/without_batteryconnection.png"/>
+    <img id="battery_wireconnect" style="position:absolute; left:553px; top:232px;max-width:8.4%;width:100%;visibility: hidden;"title="wire3" src="images/connection1.png"/>
+    <img id="batteryconnection" style="position:absolute; left:555px; top:215px;max-width:5%;width:100%;visibility: hidden;height: 66px;rotate: -2deg;"title="connection" src="images/battery_connect.png"/>
+          
+    <span id="dialog2"style="position:absolute; padding: 16px; border : 1px sollid black; background-color:black; border-radius:5px; left:439px; top:113px;width:263px;height: 43px; visibility:hidden;">
+    <input type="button" style="position:absolute;border-radius:5px; margin:0 auto; margin-left: 114px;margin-top: 28px;"id="5-2"  value="OK" onclick="hidedialog2();"/>
+    <p id="divp2" style="position:absolute;color:white; font-size:15px; padding:0px;margin-top: -10px;margin-left: 1px;">Connect Controller to Odometer </p></span>
+
+    <span id="dialog3"style="position:absolute; padding: 16px; border : 1px sollid black; background-color:black; border-radius:5px; left:-41px; top:113px;width:214px;height: 43px; visibility:hidden;">
+    <input type="button" style="position:absolute;border-radius:5px; margin:31 auto; margin-left: 78px;margin-top: 28px;"id="5-3"  value="OK" onclick="hidedialog3();"/>
+    <p id="divp3" style="position:absolute;color:white; font-size:15px; padding:0px;margin-top: -10px;margin-left: 1px;">Connect Controller to Battery and Radar.
+    </p></span>
+    <img id="batterywire1_connecthand" style="position:absolute; left:640px; top:236px;max-width:9%;width:100%;visibility: hidden;rotate: 28deg;"title="Odometer connector" src="images/hand.png"/>
+    <img id="fullsetup" style="position:absolute; left:147px; top:63px;width: 38%;visibility: hidden;height: 85%;" title="GPR machine"  src="images/after_connectodometer1.png"/>
+    <img id="arrowsuspend" style="position: absolute; left: 367px; top: 344px; width: 73px; rotate: 90deg; visibility: hidden;" src="images/arrow5.png"/>
+    <p id="arrow_suspendtext" style="position: absolute; left: 476px; top: 402px; width: 210px;font-size: 14px; font-weight: bold; visibility: hidden;">Suspending Radar at 2 to 5 cm above.</p>
+    </div>
+ 
+    <div class="simsubscreen" id="canvas3" style="visibility:hidden;">
+      <strong class="incanvas">STEP</strong>
+      <span class="circlebg">&nbsp;3&nbsp;</span>
+      <p class="steptext">&nbsp;Initial settings configuration of GPR.</p>
+      <img id="GPR_setup" style="position:absolute; left:177px; top:129px;width: 37%;visibility: hidden;" title="GPR machine"  src="images/machinewithout_lap.png"/>
+      <img id="closelapset" style="position: absolute;visibility: hidden;top: 98px; left: 256px; width: 15%; height: 31px;" src="images/close_lap.png"/>
+      <img id="device_clip" style="position: absolute; visibility: hidden;width: 2%; top: 99px;left: 304px;" src="images/clip.png"/>
+      <img id="device_clip1" style="position: absolute; visibility: hidden;width: 2%; top: 88px;left: 304px;" src="images/clip1.png"/>
+      <img id="open_lap" style="position: absolute; visibility: hidden; top: 58px;left: 257px;width: 15%;" src="images/open_lap.png"/>
+      <img id="on_hand" style="position: absolute;left: 338px;width: 46px;top: 420px;visibility: hidden;" src="images/on_hand.png"/>
+      <img id="ipad" style="position: absolute;left: 123px;width: 52%;top: 39px;visibility: hidden;" src="images/ipad_11.png"/>
+      
+      <img id="app" style="position: absolute;visibility: hidden;width: 24%;max-width: 43%;top: 102px; left: 37px;height: 351px;" src="images/apps.png"/>
+      <img id="gas_xp" style="position: absolute;visibility: hidden;width: 8%; top: 310px; left: 39px;height: 58px;" src="images/gas_xp.png"/>
+      
+      <img id="graph1" style="position: absolute;visibility: hidden;width: 100%;max-width: 13%;height: 53%;top: 168px;left: 94px;" width="320" height="176" src="images/data1.png"/>
+      <img id="blackgraph1" style="position: absolute;visibility: hidden;width: 100%;max-width: 13%;height: 53%;top: 168px;left: 94px;" width="320" height="176" src="images/black_graph.png"/>
+      <img id="grass" style="position: absolute;width: 114%;max-width: 107%;top: 409px;left: -50px;height:64px;visibility: hidden;" src="images/grass.jpg"/>
+    
+      <img id="GPR" style="position: absolute;width: 100%;max-width: 21%;visibility: hidden;margin-top: 285px;left: 227px;" title="USRADAR" src="images/running_radar1.png"/>
+      <img id="ring1" style="position: absolute;visibility: hidden;width: 100%;max-width: 5%;left: 258px;top: 416px;" src="images/ring1.png"/>
+      <img id="ring2" style="position: absolute;visibility: hidden;width: 100%;max-width: 5.5%;left: 348px;margin-top: 420px;" src="images/ring2.png"/>
+      <img id="rightleg" style="position: absolute;visibility: hidden;width: 100%;max-width: 16%; margin-top: 251px;left: 131px;" src="images/rightleg.png"/>
+      <img id="leftleg" style="position: absolute;visibility: hidden;width: 100%;max-width: 16%; margin-top: 251px;left: 160px;height: 199px;" src="images/leftset.png"/>
+
+      <img id="tab_screen" style="position: absolute;left: 40px;top: 87px;width: 83%;height: 76%;visibility: hidden;" src="images/tabscreen1.png"/>
+      <img id="graphcurve" style="position: absolute;visibility: hidden;left: 41px;top: 168px;height: 281px;width: 113px;" src="images/grapgh_curve1.png"/>
+      <img id="curve1" style="position: absolute;visibility: hidden;left: 86px;top: 168px;height: 281px;width: 26px;" src="images/curve1.png"/>
+      <img id="play" style="position: absolute;visibility: hidden;width: 100%;max-width: 26px;left: 73px;top: 103px;" title="play" src="images/play.png"/>   
+      <img id="pause" style="position: absolute;visibility: hidden;left: 73px;top: 103px;width: 100%;max-width: 26px;" title="pause" src="images/pause.png"/>  
+      <img id="traced_setting" style="position: absolute;visibility: hidden;left: 105px;top: 103px;width: 100%;max-width: 26px;" title="trace setting" src="images/tracebutton.png"/>   
+      
+      <img id="general_setting" style="position: absolute;visibility: hidden;left: 139px;top: 103px;width: 100%;max-width: 26px;"  src="images/general_setting.png"/>   
+      <img id="traced_settingscreen" style="position: absolute;visibility: hidden;left: 162px;top: 138px;height: 62%; width: 60%;" title="tracec settingscreen" src="images/trace_setting.png"/>
+      
+      <span id="dialog_tracenote"style="position:absolute; padding: 16px; border : 1px sollid black; background-color:black; border-radius:5px; left:170px; top:230px;width:277px;height: 61px; visibility:hidden;">
+      <input type="button" style="position:absolute;border-radius:5px; margin:0 auto; margin-left: 123px;margin-top: 48px;"id="33-1"  value="OK" onclick="hidedialog_tracenote();"/>
+      <p id="divp_tracenote" style="position:absolute;color:white; font-size:15px; padding:0px;margin-top: -13px;margin-left: -4px;">The gain of Receiver is modified based on field condition as increase in depth damps the amplitude of wave.</p></span>
+      
+      <label>
+      <p id="mode" style="position: absolute;visibility: hidden; top: 343px;left: 189px;width: 1.5%;font-size: 11px;font-weight: bold;">Mode</p>
+      <input style="position: absolute;visibility: hidden;top: 367px;left: 183px;width: 1.5%;" class="custom-tooltip" data-tooltip="Continuous collection of data at same place." disabled type="radio" name="options" value="time" id="timeRadio"><p id="timemode" style="position: absolute;top: 358px;left: 202px;width: 1.5%;visibility: hidden;font-size: 11px;font-weight: bold;">Time</p> 
+      </label>
+
+      <label>
+      <input style="position: absolute;visibility: hidden;top: 400px;left: 183px;width: 1.5%;"  class="custom-tooltip" data-tooltip="For finding one trace at a location." disabled type="radio" name="options" value="oneShot" id="oneShotRadio"><p id="OneShotmode" style="position: absolute;top: 391px;left: 202px;width: 11.5%;visibility: hidden;font-size: 11px;font-weight: bold;">One Shot</p>  
+      </label>
+
+      <label>
+      <input style="position: absolute;visibility: hidden;top: 383px;left: 183px;width: 1.5%;"  class="custom-tooltip" data-tooltip="For traversing and utility detection." disabled type="radio" name="options" value="distance" id="distanceRadio"><p id="Distanceemode" style="position: absolute;top: 374px;left: 202px;width: 1.5%;visibility: hidden;font-size: 11px;font-weight: bold;">Distance</p> 
+      </label>
+      
+      <button style="position: absolute;visibility: hidden;left: 412px;top: 435px;height: 17px;font-size: 11px;color: black;font-weight: bold;border: 1px solid;background-color: white;"  id="apply"disabled>Apply</button>
+
+      <span id="dialog_radio"style="position:absolute; padding: 16px; border : 1px sollid black; background-color:black; border-radius:5px; left:176px; top:230px;width:227px;height: 43px; visibility:hidden;">
+      <input type="button" style="position:absolute;border-radius:5px; margin:0 auto; margin-left: 101px;margin-top: 28px;"id="text_radio"  value="OK" onclick="hidedialog_radio();"/>
+      <p id="divp_radio" style="position:absolute;color:white; font-size:15px; padding:0px;margin-top: -10px;margin-left: 1px;">Choose mode of survey as distance.</p></span>
+
+      <div id="graph"  style="position: absolute;visibility: hidden;width: 88%;top: 204px;height: 33%;">
+      <canvas id="myChart" style="rotate: 90deg;margin-left: 393px;position: relative;" ></canvas>
+      </div>
+      <div id="backpaper" style="position: absolute;visibility: hidden;height: 5%;width: 20%;left: 443px;top: 149px;background-color: white;" ></div>
+      <div id="backpaper1" style="position: absolute;visibility: hidden;height: 2.8%;width: 23%;left: 510px;top: 269px;rotate: 90deg;background-color: white" ></div>
+      
+      <div id="inputs" style="position: absolute;visibility: hidden;">
+      <label  for="inputValue1"></label>
+      <input placeholder="(0-50)" style="position: absolute;left: 310px;top: 313px;width: 40px;height: 10px;font-size: 9px;" disabled type="number" id="inputValue1" min="0" max="50" >
+
+      <label  for="inputValue2"></label>
+      <input placeholder="(0-50)" style="position: absolute;left: 310px;top: 334px;width: 40px;height: 10px;font-size: 9px;" disabled type="number" id="inputValue2" min="0" max="50" >
+
+      <label  for="inputValue3"></label>
+      <input placeholder="(0-50)" style="position: absolute;left: 310px;top: 357px;width: 40px;height: 10px;font-size: 9px;" disabled type="number" id="inputValue3" min="0" max="50">
+
+      <label  for="inputValue4"></label>
+      <input placeholder="(0-50)" style="position: absolute;left: 362px;top: 314px;width: 40px;height: 10px;font-size: 9px;" disabled type="number" id="inputValue4" min="0" max="50" >
+
+      <label  for="inputValue5"></label>
+      <input placeholder="(0-50)" style="position: absolute;left: 361px;top: 335px;width: 40px;height: 10px;font-size: 9px;" disabled type="number" id="inputValue5" min="0" max="50" >
+
+      <label  for="inputValue6"></label>
+      <input placeholder="(0-50)" style="position: absolute;left: 361px;top: 358px;width: 40px;height: 10px;font-size: 9px;" disabled type="number" id="inputValue6" min="0" max="50" >
+    
+      <div id="notification" style="color: red; display: none;font-size: 10px;margin-left: 411px;
+      margin-top: 389px;
+      font-weight: bold;">Please enter positive values only!</div>
+      <button style="position: absolute;visibility: hidden;left: 469px;top: 406px;height: 17px;font-size: 11px;color: black;font-weight: bold;border: 1px solid;background-color: white;"  id="subButton">Submit</button>
+      </div>
+
+      <img id="general_setting5" style="position: absolute;visibility: hidden;left: 139px;top: 103px;width: 100%;max-width: 26px;" title="general setting" src="images/general_setting.png"/>   
+      <img id="general_settingscreen" style="position: absolute;visibility: hidden;left: 172px;top: 135px;height: 68%; width: 44%;" title="tracec settingscreen" src="images/general_settingscreen.png"/> 
+      <img id="blank_general" style="position: absolute;visibility: hidden;left: 172px;top: 135px;height: 68%; width: 44%;" title="tracec settingscreen" src="images/blankgeneral.png"/> 
+
+      <div>
+      <p id="material" style="position: absolute;visibility: hidden;font-size: 10px;font-weight: bold;left: 183px;top: 171px;">Material</p>
+      <p id="type" style="position: absolute;visibility: hidden;font-size: 10px;font-weight: bold;left: 183px;top: 190px;">Type</p>
+      <p id="RDP" style="position: absolute;visibility: hidden;font-size: 10px;font-weight: bold;left: 183px;top: 228px;">RDP</p>
+          
+      <button id="general_button" style="position: absolute;visibility: hidden;left: 181px;top: 154px;height: 3%; width: 8%;background-color: white; font-size: 11px;font-weight: bold;" onclick="toggleOptions()">General</button>
+      <button id="sensors_button" style="position: absolute;visibility: hidden;left: 239px;top: 154px;height: 3%; width: 8%;background-color: white; font-size: 11px;font-weight: bold;" onclick="toggleOptions()">Sensors</button>
+      <button id="view_button" style="position: absolute;visibility: hidden;left: 297px;top: 154px;height: 3%; width: 5%;background-color: white; font-size: 11px;font-weight: bold;" onclick="toggleOptions()">View</button>
+      <button id="wheel_button" style="position: absolute;visibility: hidden;left: 332px;top: 154px;height: 3%; width: 15%;background-color: white; font-size: 11px;font-weight: bold;" onclick="toggleOptions()">Wheel callibration</button>
+      <button id="RDP_button" style="position: absolute;visibility: hidden;left: 442px;top: 154px;height: 3%; width: 6%;background-color: white; font-size: 11px;font-weight: bold;" onclick="toggleOptions()">RDP</button>
+              
+      <label style="position: absolute;visibility: hidden;top: 217px;font-size: 10px;font-weight: bold;left: 183px"  for="firstDropdown"></label>
+      <select style="position: absolute;left: 183px;font-size: 11px;font-weight: bold;top: 217px; visibility: hidden;height: 18px;" id="firstDropdown" onchange="populateSecondDropdown()">
+        <option value="a">Select the type</option>
+        <option value="a">Asphalt</option>
+        <option value="b">Dry soil</option>
+        <option value="c">Wet soil</option>
+        <option value="d">Concrete</option>
+        <option value="e">Dry Sand</option>
+        <option value="f">Saturated sand</option>
+        <option value="g">Ice</option>
+      </select>
+        
+      <label style="position: absolute;visibility: hidden;top: 217px;font-size: 10px;font-weight: bold;left: 183px" for="secondDropdown"></label>
+      <select style="position: absolute;left: 184px;font-size: 11px;font-weight: bold;top: 259px; visibility: hidden;width: 52px;height: 18px;" id="secondDropdown"></select>
+      <button id="doneButton" style="position: absolute;visibility: hidden;left: 291px;top: 217px;height: 15px; width: 4%;background-color: white; font-size: 10px;font-weight: bold;" disabled >OK</button>
+
+      <button id="OK_button" style="position: absolute;visibility: hidden;left: 338px;top: 466px;height: 3%; width: 8%;background-color: white; font-size: 11px;font-weight: bold;" >OK</button>
+      <button id="Cancel_button" style="position: absolute;visibility: hidden;left: 410px;top: 466px;height: 3%; width: 8%;background-color: white; font-size: 11px;font-weight: bold;" >Cancel</button>
+
+      <span id="dialog_intial"style="position:absolute; padding: 16px; border : 1px sollid black; background-color:black; border-radius:5px; left:222px; top:205px;width:263px;height: 43px; visibility:hidden;">
+      <input type="button" style="position:absolute;border-radius:5px; margin:0 auto; margin-left: 114px;margin-top: 28px;"id="initial"  value="OK" onclick="hidedialogintial();"/>
+      <p id="divp_initial" style="position:absolute;color:white; font-size:15px; padding:0px;margin-top: -10px;margin-left: 1px;">Intial settings are done for survey.</p></span>
+    </div></div>
+
+    <div class="simsubscreen" id="canvas4" style="visibility:hidden;">
+        <strong class="incanvas">STEP</strong>
+        <span class="circlebg">&nbsp;4&nbsp;</span>
+        <p class="steptext">&nbsp;Start Survey Along with the Straight Path and Data Collection.Then Save the Survey Data.</p>
+        <img id="grass" style="position: absolute;width: 114%;max-width: 107%;top: 441px;left: -50px;height:64px;visibility: hidden;" src="images/grass.jpg"/>
+        <img id="record" style="position: absolute;visibility: hidden;left: 40px;top: 104px;width: 100%;max-width: 29px;height: 30px;" title="record" src="images/record.png"/>   
+        <img id="black_image" style="position: absolute;left: 34px;top: 70px;width: 24.3%; height: 19.1%;visibility: hidden;" src="images/black_image.png"/>
+        <img id="blackgraph2" style="position: absolute;visibility: hidden;width: 100%;max-width: 2%;height: 19%;top: 69px;left: 23px;" width="320" height="176" src="images/black_graph1.png"/> 
+        <img id="graph2_slide" style="position: absolute;visibility: hidden;width: 100%;max-width: 90%;height:427px;left: 14px;top: 76px;" src="images/record_data.png"/>
+        <img id="black_image1" style="position: absolute;left: 82px;top: 154px; width: 73.3%;height: 54.1%;visibility: hidden;" src="images/black_image.png"/>
+        <img id="blackgraph21" style="position: absolute;visibility: hidden;width: 100%;max-width: 8%;height: 54%;top: 153px;left: 82px;" width="320" height="176" src="images/black_graph1.png"/> 
+        <img id="zoom1" style="position: absolute;left: 472px; width:145px;top: 39px;visibility: hidden;" width="208" height="170" onmouseover="bigImg()" onmouseout="normalImg()" src="images/location.jpeg" alt="">
+        <p id="source_text" style="position: absolute;visibility: hidden;font-size: 14px;top: 197px;left: 471px;">Source:NITK Campus, Surathkal </p>
+
+        <img id="file_save" style="position: absolute;visibility: hidden;left: 256px;top: 170px;width: 34%;" src="images/file_saved.png"/>
+        <p id="savetext" style="position: absolute;visibility: hidden;left: 287px;top: 234px;font-size: 12px;font-weight: bold;">File saved as Profile152.gsf</p>
+        <button id="filesave_ok" style="position: absolute;visibility: hidden;left: 412px;top: 321px;height: 4%; width: 9%;background-color: white; font-size: 11px;font-weight: bold;" >OK</button>
+
+        <p id="num-1" style="position: absolute; top: 122px; font-size: 12px; visibility: hidden;left: -49px;"></p>
+        <div id="handleCount"style="visibility: hidden;margin-top: 99px;margin-left: 29px;">
+        <div id="myBar">0.01</div></div>
+
+        <img id="setupmode_button" onclick="move()" style="position: absolute;visibility: hidden;left: 19px;top: 95px;width: 100%;max-width: 30px;height: 30px;" title="record" src="images/setupmode_button.png"/>  
+        <div id="white_paper" style="position: absolute;visibility: hidden;top: 90px;left: 69px;background-color: white; width: 4%;height: 6%;"></div>  
+        <img id="into_button" style="position: absolute;visibility: hidden;left: 69px;top: 90px;width: 100%;max-width: 28px;height: 29px;" title="record" src="images/into.png"/>  
+        <img id="stop" style="position: absolute;visibility: hidden;left: 70px;top: 91px;width: 100%;max-width: 26px;height: 29px;" title="record" src="images/stop_button.png"/>   
+    </div>
+
+
+    <div class="simsubscreen" id="canvas5" style="visibility:hidden;">
+        <strong class="incanvas">STEP</strong>
+        <span class="circlebg">&nbsp;5&nbsp;</span>
+        <p class="steptext">&nbsp;Post processing of GPR Data.
+        </p>
+        <img id="ipad" style="position: absolute;transform: scale(1.1);top: 73px; left: 17px;width: 665px;height: 432px;opacity: 1;" src="images/ipad_11.png"/>
+        <img id="appset2" style="position: absolute;visibility: hidden;width: 24%;max-width: 43%;top: 102px;left: 47px;height: 351px;visibility: hidden;" src="images/appset2.png"/>
+        <img id="Gprsoft_pro" style="position: absolute;visibility: hidden;width: 10%;top: 395px;left: 40px;height: 62px;" src="images/gprsoftpro.png"/>
+
+        <img id="file_screen" style="position: absolute;left: 14px;top: 77px;width: 90%;height: 80%;visibility: hidden;" src="images/file_screen.png"/>
+        <p id="file" style="position: absolute;visibility: hidden;font-size: 11px;top: 71px;left: 36px;font-weight: bold;">File</p>
+
+        <span id="dialog6"style="position:absolute; padding: 16px; border : 1px sollid black; background-color:black; border-radius:5px; left:222px; top:227px;width:214px;height: 43px; visibility:hidden;">
+        <input type="button" style="position:absolute;border-radius:5px; margin:31 auto; margin-left: 78px;margin-top: 28px;"id="6-6"  value="OK" onclick="hidedialog6();"/>
+        <p id="divp6" style="position:absolute;color:white; font-size:15px; padding:0px;margin-top: -10px;margin-left: 1px;">Open the data from your saved folder 
+        </p></span>
+
+        <img id="full_graph" style="position: absolute;left: 17px;top: 147px;width: 71%;height: 66%;visibility: hidden;" src="images/fullgraph.png"/>
+        <img id="square" style="position: absolute;visibility: hidden;left: 553px;top: 168px;" src="images/square.png"/>
+
+        <img id="gprpro_curve" style="position: absolute;visibility: hidden;left: 605px;top: 168px;height: 322px;width: 26px;" src="images/gpr_procurve.png"/>
+        <img id="background_app" style="position: absolute;visibility: hidden;width: 2.5%;top: 122px;left: 60px;" title="" src="images/backgroundsetting_app.png"/>
+        <img id="gain_app" style="position: absolute;visibility: hidden;width: 3.5%;top: 121px;left: 84px;" title="gain" src="images/gain_button.png"/>
+
+        <img id="background_removingscreen" style="position: absolute;visibility: hidden;left: 256px;top: 170px;width: 34%;height: 249px;" src="images/background_removingscreen.png"/>
+
+        <div class="input-section">
+        <input placeholder="Enter the value" style="position: absolute;
+        top: 225px;
+        width: 10%;
+        height: 1%;
+        left: 406px;visibility: hidden;font-size: 11px;" type="text"  id="textInput" class="input-box" onmouseover="backgroundshowtext()" onmouseout="backgroundremovetext()" oninput="checkInput()">
+
+        <p id="backgroundremove_text" style="position: absolute;visibility: hidden;position: absolute;
+        background-color: #fff;
+        border: 1px solid #ccc;
+        padding: 4px;
+        z-index: 999;left: 265px;font-size: 12px;font-weight: bold;width: 63%;top: 252px;">lower value removes  coarser noise, higher value reduces finer noise</p>
+        
+        <button id="okButton" style="position: absolute;visibility: hidden;left: 351px;top: 382px;height: 4.3%; width: 8%;background-color: white; font-size: 11px;font-weight: bold;border: 1px solid black;color: black; " onclick="showProgressBar()" disabled>OK</button>
+        </div>
+      
+        <!-- Progress bar -->
+        <div class="progress-bar" id="progressBar" style="position: absolute;
+      top: 335px;
+      left: 271px;
+      width: 30%;visibility: hidden;">
+        <div class="progress" id="progress"></div>
+        </div>
+
+        <img id="gprpro_curve1" style="position: absolute;visibility: hidden;left: 605px;top: 168px;height: 322px;width: 26px;" src="images/gpr_procurve1.png"/>
+        <img id="graph_background" style="position: absolute;visibility: hidden;width: 89.5%;top: 143px;left: 16px;height: 357px;" src="images/graph_background.png"/>
+        <img id="image_graph" style="position: absolute;visibility: hidden;width: 52.5%;top: 188px;left: 69px;height: 218px;" src="images/image_graph.png"/>
+
+        <span id="gain"style="position:absolute; padding: 16px; border : 1px sollid black; background-color:black; border-radius:5px; left:222px; top:245px;width:232px;height: 73px; visibility:hidden;">
+        <input type="button" style="position:absolute;border-radius:5px; margin:31 auto; margin-left: 99px;margin-top: 58px;"id="gainok"  value="OK" onclick="gainnote();"/>
+        <p id="gaintext" style="position:absolute;color:white; font-size:15px; padding:0px;margin-top: -10px;margin-left: 1px;">The amplitude is readjusted to charge the contrast of image for better identification of utility. 
+        </p></span>
+      
+        <div>
+        <label for="inputValueLeft"></label>
+        <input type="text" id="inputValueLeft" disabled oninput="handleInput('inputValueLeft', 'left')" style="position: absolute;visibility: hidden; top: 258px;width: 3%;height: 0%;left: 546px;font-size: 10px;border: 3px solid;border-radius: 5px;
+        font-weight: bold;">
+
+        <label for="inputValueRight"></label>
+        <input type="text" id="inputValueRight" disabled oninput="handleInput('inputValueRight', 'right')" style="position: absolute;visibility: hidden; top: 282px;width: 3%;height: 0%;left: 546px;font-size: 10px;border: 3px solid;border-radius: 5px;
+        font-weight: bold;">
+        </div>
+
+        <div id="plot" style="position: absolute;top: 172px;left: 24px;height: 87px;width: 50%;"></div>
+
+        <div id="images">
+          <img id="image1" src="images/wavegraph00.png"  alt="Image 1" style="display: none; position: absolute; top: 298px; left: 124px;width: 40.4%;">
+          <img id="image2" src="images/wavegraph_3_9.png" alt="Image 2" style="display: none; position: absolute; top: 322px; left: 125px;width: 40%;">
+          <img id="image3" src="images/wavegraph51.png" alt="Image 3" style="display: none; position: absolute; top: 298px; left: 124px;width: 40%;">
+          <img id="image4" src="images/wavegraph94.png" alt="Image 4" style="display: none; position: absolute; top: 279px; left: 125px;width: 40%;">
+        </div>
+
+        <p id="text1" style="position: absolute;visibility: hidden;position: absolute;visibility: hidden; top: 259px;width: 3%;height: 0%;left: 526px;"></p>
+        <input id="1" style="position: absolute;visibility: hidden; top: 258px;width: 4.8%;height: 3%;left: 546px;font-size: 10px;border: 3px solid;border-radius: 5px;font-weight: bold;" 
+        type="text" class="inputField" disabled oninput="checkInputs()">
+        
+        <p id="text2" style="position: absolute;visibility: hidden;position: absolute;visibility: hidden; top: 259px;width: 3%;height: 0%;left: 547px;"></p>
+        <input id="2" style="position: absolute;visibility: hidden; top: 282px;width: 4.8%;height: 3%;left: 546px;font-size: 10px;border: 3px solid;border-radius: 5px;
+        font-weight: bold;" type="text" class="inputField" disabled oninput="checkInputs()">
+
+        <p id="text3" style="position: absolute;visibility: hidden;position: absolute;visibility: hidden; top: 259px;width: 3%;height: 0%;left: 547px;"></p>
+        <input id="3"  style="position: absolute;visibility: hidden;top: 305px;width: 3%;height: 0%;left: 547px;font-size: 10px;" placeholder="0" disabled type="text" class="inputField" oninput="checkInputs()">
+
+        <p id="text4" style="position: absolute;visibility: hidden;position: absolute;visibility: hidden; top: 259px;width: 3%;height: 0%;left: 547px;"></p>
+        <input id="4" style="position: absolute;visibility: hidden;top: 328px;width: 3%;height: 0%;left: 547px;font-size: 10px;" type="text" placeholder="0" disabled class="inputField" oninput="checkInputs()">
+
+        <p id="text5" style="position: absolute;visibility: hidden;position: absolute;visibility: hidden; top: 259px;width: 3%;height: 0%;left: 547px;"></p>
+        <input id="5" style="position: absolute;visibility: hidden;top: 352px;width: 3%;height: 0%;left: 547px;font-size: 10px;" type="text" placeholder="0" disabled class="inputField" oninput="checkInputs()">
+
+        <p id="text6" style="position: absolute;visibility: hidden;position: absolute;visibility: hidden; top: 259px;width: 3%;height: 0%;left: 526px;"></p>
+        <input id="6" style="position: absolute;visibility: hidden;top: 259px;width: 3%;height: 0%;left: 618px;font-size: 10px;" type="text" placeholder="0" disabled class="inputField" oninput="checkInputs()">
+
+        <p id="text7" style="position: absolute;visibility: hidden;position: absolute;visibility: hidden; top: 259px;width: 3%;height: 0%;left: 526px;"></p>
+        <input id="7" style="position: absolute;visibility: hidden;top: 281px;width: 3%;height: 0%;left: 618px;font-size: 10px;" type="text" placeholder="0" disabled class="inputField" oninput="checkInputs()">
+
+        <p id="text8" style="position: absolute;visibility: hidden;position: absolute;visibility: hidden; top: 259px;width: 3%;height: 0%;left: 526px;"></p>
+        <input id="8" style="position: absolute;visibility: hidden;top: 305px;width: 3%;height: 0%;left: 618px;font-size: 10px;" type="text" placeholder="0" disabled class="inputField" oninput="checkInputs()">
+
+        <p id="text9" style="position: absolute;visibility: hidden;position: absolute;visibility: hidden; top: 259px;width: 3%;height: 0%;left: 526px;"></p>
+        <input id="9" id="10" style="position: absolute;visibility: hidden;top: 328px;width: 3%;height: 0%;left: 618px;font-size: 10px;" type="text" placeholder="0" disabled class="inputField" oninput="checkInputs()">
+
+        <p id="text10" style="position: absolute;visibility: hidden;position: absolute;visibility: hidden; top: 259px;width: 3%;height: 0%;left: 526px;"></p>
+        <input id="10" style="position: absolute;visibility: hidden;top: 352px;width: 3%;height: 0%;left: 618px;font-size: 10px;" type="text" placeholder="0" disabled class="inputField" oninput="checkInputs()">
+
+        <input style="position: absolute;left: 578px;top: 429px;width: 45px;background: white;border: 1.5px solid;height: 22px;font-size: 10px;font-weight: bold;visibility: hidden;" onMouseOver="graphinfo()" 
+        disabled onMouseOut="graphinfo1()" type="button" id="okButton1" value="OK" onclick="gain()" >
+
+        <p id="graphtext" style="position: absolute;visibility: hidden;top: 442px;background-color: black;color: white;width: 37%;left: 461px;height: 27px;font-size: 15px;text-align: center;" >click on the ok button to proceed.</p>
+    </div>
+
+
+    <div class="simsubscreen" id="canvas6" style="visibility:hidden;">
+    <strong class="incanvas">STEP</strong>
+    <span class="circlebg">&nbsp;6&nbsp;</span>
+    <p class="steptext">&nbsp;Identification of utilities</p>
+    <img style="position:absolute; left:611px; top:8px;width: 3%;" onMouseOver="information1()" onMouseOut="information1a()" src="images/information_icon.png"/>
+    <p id="hoverText" style="position:absolute;visibility:hidden;margin-top: 3px;background-color: black;color: white;width: 87%; border-radius: 5px;padding: 0px 20px 10px 15px;z-index: 100;height: 33px;margin-left:-19px; ">Click on the top of the convex shapes appearing on the data set as they are the signature for different pipes & cables present under ground.</p>
+    <img id="ipad7" style="position: absolute;transform: scale(1.1);top: 73px;left: 17px;width: 665px;height: 432px;opacity: 1;" src="images/ipad_11.png"/>
+
+    <img id="file_screen7" style="position: absolute;left: 14px;top: 77px;width: 90%;height: 80%;visibility: hidden;" src="images/file_screen.png"/>
+    <p id="file7" style="position: absolute;visibility: hidden;font-size: 11px;top: 71px;left: 36px;font-weight: bold;">File</p>
+
+    <img id="background_app7" style="position: absolute;visibility: hidden;width: 2.5%;top: 122px;left: 60px;" title="" src="images/backgroundsetting_app.png"/>
+    <img id="gain_app7" style="position: absolute;visibility: hidden;width: 3.5%;top: 121px;left: 84px;" title="gain" src="images/gain_button.png"/>
+    <img id="surface_app" style="position: absolute;visibility: hidden;width: 2%;top: 124px;left: 128px;height: 17px;" title="gain" src="images/surface_app.png"/>
+    <img id="finding_graph" style="position: absolute;left: 17px;top: 147px;width: 71%;height: 66%;visibility: hidden;" src="images/finding_graph.png"/>
+    <img id="measure_arrow" style="position: absolute;visibility: hidden;top: 174px;left: 30px;width: 62%;" src="images/measure_arrow.png"/>
+    <img id="surface_screen" style="position: absolute;left: 227px;top: 201px;width: 32%;height: 39%;visibility: hidden;" src="images/surface_screen.png"/>
+
+    <button id="surface_ok" style="position: absolute;visibility: hidden;top: 362px;width: 9.9%;height: 4%;left: 252px;background-color: white;font-size: 10px;font-weight: bold;" >OK</button>
+    <img id="green_box" style="position: absolute;left: 243px;top: 329px;width: 2%;height: 4%;visibility: hidden;" src="images/greenbox.png"/> 
+
+    <img id="square7" style="position: absolute;visibility: hidden;left: 553px;top: 168px;" src="images/square.png"/>
+
+    <img id="gprpro_curve7" style="position: absolute;visibility: hidden;left: 605px;top: 168px;height: 322px;width: 26px;" src="images/gpr_procurve.png"/>
+    <img id="surface_curve" style="position: absolute;visibility: hidden;left: 598px;top: 168px;height: 322px;width: 46px;" src="images/surface_curve.png"/>
+    <img id="round2" style="position: absolute;visibility: hidden;width: 100%;max-width: 7%;height: 51px;left: 192px;top: 229px;" src="images/utility11.png"/>
+    <p id="data2" style="position: absolute;visibility: hidden;margin-left: 191px;margin-top: 216px;background-color: white;">0.601</p>
+    </div>
+
+
+    <div class="simsubscreen" id="canvas7" style="visibility:hidden;">
+          <p id="17-4" style="position: absolute;margin-top: 36px;font-size: 20px;margin-left: 8px;"><b><u>Result<br></u></b>
+          <p id ="p17-1" style="position:absolute; left:6px; top:67px; font-size:15px;">Utilities have been found in the data set.</p>
+          <p id ="p17-2" style="position:absolute; left:7px; top:111px; font-size:15px;"> Distance noted 11.3m</p>
+          <p id ="p17-3" style="position:absolute; left:8px; top:160px; font-size:15px;"> Depth noted 0.6m</p>
+          <div id="last_paper" style="position: absolute;width: 84%;background-color: white;top: 209px;height: 45%;"></div>
+    </div>
+    </div>
+ 
+    <div id="nav">
+    <img id="nextButton" onclick="navNext()" src="images/next.png" />
+    </div>
+    
+    <!--Blinking Arrow	-->	
+    <img class ="" id="arrow1" style="visibility:hidden;" src="images/arrow1.png"/>
+    <div id="copyright"> &copy; 2018 - <script>document.write(new Date().getFullYear())</script> SOLVE - The Virtual Lab @ NITK Surathkal, Department of Water Resources & Ocean Engineering</div>
+
 </body>
 </html>

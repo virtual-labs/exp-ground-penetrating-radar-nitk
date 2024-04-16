@@ -2,38 +2,89 @@
   "version": 2.0,
   "questions": [
     {
-      "question": "This is a Sample Question 1?",
+      "question": "What does GPR stand for?",
       "answers": {
-        "a": "answer1",
-        "b": "answer2",
-        "c": "answer3",
-        "d": "answer4"
+        "a": "General Purpose Radar",
+        "b": "Ground-Penetrating Radar",
+        "c": "Geophysical Pulse Radiator",
+        "d": "Gravitational Phase Resonance"
       },
       "explanations": {
-        "a": "Explanation 1  <a href='www.google.com'>here</a>",
-        "b": "Explanation 2",
-        "c": "Explanation 2",
-        "d": "Explanation 2"
+        "a": "Versatile radar system designed for a wide range of applications.",
+        "b": "Radar technology used for subsurface imaging and exploration.",
+        "c": "Device emitting pulses for geophysical investigations and exploration.",
+        "d": "Concept related to the resonant phases of gravitational waves."
       },
-      "correctAnswer": "a",
+      "correctAnswer": "b",
       "difficulty": "beginner"
     },
     {
-      "question": "This is a Sample Question 2?",
+      "question": "Which frequency range is commonly used in Ground-Penetrating Radar (GPR)?",
       "answers": {
-        "a": "answer1",
-        "b": "answer2",
-        "c": "answer3",
-        "d": "answer4"
+        "a": "FM Radio Frequency",
+        "b": "Infrared Frequency",
+        "c": "Microwave Frequency",
+        "d": "Ultrasonic Frequency"
       },
       "explanations": {
-        "a": "Explanation 1  <a href='www.google.com'>here</a>",
-        "b": "Explanation 2",
-        "c": "Explanation 2",
-        "d": "Explanation 2"
+        "a": "Radio signals in the frequency modulation range.",
+        "b": "Electromagnetic radiation with longer wavelengths than visible light.",
+        "c": "Short-wavelength electromagnetic waves used in various technologies.",
+        "d": "Sound waves beyond the range of human hearing."
+      },
+      "correctAnswer": "c",
+      "difficulty": "Intermediate"
+    },
+    {
+      "question": "What is the primary principle behind GPR's subsurface imaging?",
+      "answers": {
+        "a": "Magnetic Resonance Imaging",
+        "b": "Sonar Wave Reflection",
+        "c": "Electromagnetic Wave Interaction",
+        "d": "Gravitational Wave Diffraction"
+      },
+      "explanations": {
+        "a": "Imaging technique utilizing magnetic fields and radio waves for medical diagnostics.",
+        "b": "Detection method based on the reflection of sound waves in underwater environments.",
+        "c": "Imaging through the interaction of electromagnetic waves with matter.",
+        "d": "Analysis of gravitational waves bending around objects."
+      },
+      "correctAnswer": "c",
+      "difficulty": "Intermediate"
+    },
+    {
+      "question": "In a GPR system, what is responsible for transmitting a short pulse of electromagnetic radiation?",
+      "answers": {
+        "a": "Controller",
+        "b": "Receiver",
+        "c": "Transmitter",
+        "d": "Odometer"
+      },
+      "explanations": {
+        "a": "Device managing system operations.",
+        "b": "Equipment capturing signals or data.",
+        "c": "Device emitting signals or data.",
+        "d": "Instrument measuring distance traveled."
       },
       "correctAnswer": "c",
       "difficulty": "beginner"
+    },
+    {
+      "question": "What property of subsurface materials affects the speed of the electromagnetic pulse in GPR?",
+      "answers": {
+        "a": "Density",
+        "b": "Color",
+        "c": "Conductivity",
+        "d": "Hardness"
+      },
+      "explanations": {
+        "a": "Measure of mass per unit volume.",
+        "b": "Visual perception based on light wavelengths.",
+        "c": "Material's ability to conduct electric current.",
+        "d": "Resistance of a material to deformation or scratching."
+      },
+      "correctAnswer": "c",
+      "difficulty": "advanced"
     }
-  ]
+]
 }
