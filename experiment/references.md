@@ -14,7 +14,7 @@
 </li>
 <li>Peters, L., Daniels, J., & Young, J. D. (1994). Ground penetrating radar as a subsurface environmental sensing tool. Retrieved 1 4, 2024, from <a href="http://ece.uprm.edu/~caceros/tablas/gprpapers/gpr_theory_1994.pdf">http://ece.uprm.edu/~caceros/tablas/gprpapers/gpr_theory_1994.pdf</a>
 </li>
-<li>Vaughan, C. J. (1986). Ground-penetrating radar surveys used in archaeological investigations. Geophysics, 51(3), 595-604. Retrieved 1 4, 2024, from <a hhref="ttps://library.seg.org/doi/abs/10.1190/1.1442114">https://library.seg.org/doi/abs/10.1190/1.1442114</a>
+<li>Vaughan, C. J. (1986). Ground-penetrating radar surveys used in archaeological investigations. Geophysics, 51(3), 595-604. Retrieved 1 4, 2024, from <a hhref="https://library.seg.org/doi/abs/10.1190/1.1442114">https://library.seg.org/doi/abs/10.1190/1.1442114</a>
 </li>
 <li>What is GPR: A Brief Description by GSSI. (n.d.). Retrieved 1 4, 2024, from <a href="http://www.geophysical.com/whatisgpr.htm">http://www.geophysical.com/whatisgpr.htm</a>
 </li>
