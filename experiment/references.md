@@ -24,7 +24,7 @@
 Contributors :
 <ul style="list-style-type: none;">
 <li>Shwetha | NITK</li>
-<li>Priyajit Kundu | NITK</li>
+<li>Priyajit Kundu (227CV012) | NITK</li>
 <li>Ashika Pai  | NITK</li>
 </ul></td>
 </tr>
