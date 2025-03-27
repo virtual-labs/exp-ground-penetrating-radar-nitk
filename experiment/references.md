@@ -26,8 +26,6 @@ Contributors :
 <li>Shwetha | NITK</li>
 <li>Ashika Pai  | NITK</li>
 <li>Priyajit Kundu | NITK</li>
-<li>Anusha B Salian | NITK</li>
-<li>Akshaya | NITK</li>
 </ul></td>
 </tr>
 </table>
