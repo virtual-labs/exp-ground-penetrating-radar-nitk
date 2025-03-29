@@ -1,1 +1,1 @@
-## Groundwater level identification using ground penetrating radar
+## Groundwater level identification using Ground Penetrating Radar
