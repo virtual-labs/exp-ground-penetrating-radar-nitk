@@ -1,6 +1,4 @@
-### Procedure
-
-<div style="text-align:left">
+#### The procedure is as follows:
 
 1.  Click on the simulation button and this page will be displayed. Hover over the description button to get a brief explanation about the experiment.
 
@@ -10,7 +8,7 @@
 
     ![Alt text](images/procedure_2.png)
 
-3. Connect component to the Trolley and Suspend the Radar Horizontally 2-5cm above ground surface.
+3. Connect component to the Trolley and suspend the Radar Horizontally 2-5cm above ground surface.
 
    ![Alt text](images/procedure_2a.png)
 
@@ -58,5 +56,3 @@
     ![Alt text](images/procedure_6a.png)
 
     ![Alt text](images/procedure_6b.png)
-  
-</div>
