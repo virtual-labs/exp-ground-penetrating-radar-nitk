@@ -26,6 +26,7 @@ Contributors :
 <li>Shwetha | NITK</li>
 <li>Priyajit Kundu (227CV012) | NITK</li>
 <li>Ashika Pai | NITK</li>
+<li>Dr. Vyshali | NITK</li>
 </ul></td>
 </tr>
 </table>
