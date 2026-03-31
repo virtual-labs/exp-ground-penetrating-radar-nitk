@@ -1,0 +1,91 @@
+{
+  "version": 2.0,
+  "questions": [
+    {
+      "question": "In GPR surveys, how does the time delay between the transmitted pulse and the received signal relate to the depth of the reflecting interface?",
+      "answers": {
+        "a": "Time delay is inversely proportional to depth.",
+        "b": "Time delay is directly proportional to depth.",
+        "c": "Time delay is not related to depth.",
+        "d": "Time delay is logarithmically related to depth."
+      },
+      "explanations": {
+        "a": "With increase of depth time delay decreases.",
+        "b": "With increase in depth time delay increases.",
+        "c": "Does not effect.",
+        "d": "Time delay and depth varies in logarithmic scale."
+      },
+      "correctAnswer": "b",
+      "difficulty": "advanced"
+    },
+    {
+      "question": "Describe the role of Relative Dielectric Permittivity (RDP) in GPR surveys and how it affects the interpretation of subsurface structures.",
+      "answers": {
+        "a": "RDP influences the speed of the pulse, affecting depth estimation.",
+        "b": "RDP has no impact on GPR survey outcomes.",
+        "c": "RDP influences the amplitude of reflections, affecting clarity.",
+        "d": "RDP determines the color representation in GPR images."
+      },
+      "explanations": {
+        "a": "In GPR, RDP impacts the pulse speed, consequently influencing the estimation of depth.",
+        "b": "RDP does not impact GPR survey outcomes.",
+        "c": "RDP affects the amplitude of reflections, influencing clarity in GPR images.",
+        "d": "RDP determines the color representation in GPR images."
+      },
+      "correctAnswer": "a",
+      "difficulty": "beginner"
+    },
+    {
+      "question": "In GPR data processing, what considerations are involved in selecting the optimal gain settings for a survey?",
+      "answers": {
+        "a": "Minimizing signal-to-noise ratio.",
+        "b": "Enhancing visibility of subsurface features.",
+        "c": "Maximizing background noise.",
+        "d": "Ignoring variations in the collected data."
+      },
+      "explanations": {
+        "a": "Prioritizing the reduction of signal-to-noise ratio in geophysical surveys.",
+        "b": "Emphasizing the improvement of subsurface feature visibility.",
+        "c": "Avoiding the maximization of background noise in collected data.",
+        "d": "Acknowledging and considering variations in the collected data during analysis."
+      },
+      "correctAnswer": "b",
+      "difficulty": "beginner"
+    },
+    {
+      "question": "What type of material produces strong reflections in GPR due to its low electrical conductivity?",
+      "answers": {
+        "a": "Metal",
+        "b": "Dry Soil",
+        "c": "Ice",
+        "d": "Rock"
+      },
+      "explanations": {
+        "a": "Material with high electrical conductivity.",
+        "b": "Soil without significant moisture content.",
+        "c": "Solid form of water.",
+        "d": "Solid mineral material forming the Earth's crust."
+      },
+      "correctAnswer": "b",
+      "difficulty": "intermediate"
+    },
+    {
+      "question": "What is the main advantage of GPR technology in subsurface investigations?",
+      "answers": {
+        "a": "Non-destructive Imaging",
+        "b": "Sonic Wave Amplification",
+        "c": "Gravitational Wave Detection",
+        "d": "Thermal Imaging Capability"
+      },
+      "explanations": {
+        "a": "Imaging technique without causing harm to the object.",
+        "b": "Enhancing sound waves for various applications.",
+        "c": "Identifying and measuring gravitational waves in space.",
+        "d": "Ability to capture and display infrared radiation to visualize temperature differences."
+      },
+      "correctAnswer": "a",
+      "difficulty": "intermediate"
+    }
+    
+  ]
+}
