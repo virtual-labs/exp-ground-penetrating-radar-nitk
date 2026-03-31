@@ -6,7 +6,7 @@
 <th>Contributors list</th>
 </tr>
 <tr style="background-color: white">
-<td width="300" style="text-align:justify;">
+<td width="600" style="text-align:justify;">
 <ol>
 <li>Gurel, L., & Oguz, U. (2002). Transmitter‐receiver‐transmitter configurations of ground‐penetrating radar. Radio Science, 37(3), 5-1-5-7. Retrieved 1 4, 2024, from <a href="https://agupubs.onlinelibrary.wiley.com/doi/pdf/10.1029/2001rs002500">https://agupubs.onlinelibrary.wiley.com/doi/pdf/10.1029/2001rs002500)?</a>
 </li>
